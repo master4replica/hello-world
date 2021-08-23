@@ -3,12 +3,17 @@ orbs:
   node: circleci/node@4.7.0
 commands:
   build_image:
+    parameters:
+      enviroment:
+        type: string
+        default: test
     steps:
       - checkout
-      - run: |
-          TAG=1.0
-          docker build -t iwonder/aspera-transporter:$TAG .
-          docker images
+      - run: echo <<parameters.enviroment>>
+      # - run: |
+      #     TAG=1.0
+      #     docker build -t iwonder/aspera-transporter:$TAG .
+      #     docker images
 jobs:
   build:
     machine: true
