@@ -2,22 +2,30 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@1.3.1
 commands:
-  build_image:
+  deploy_built_image:
     parameters:
       enviroment:
         type: string
         default: test
     steps:
-      - setup_remote_docker
-          # docker_layer_caching: true
+      - setup_remote_docker:
+          docker_layer_caching: false
       - run: |
           node --version
           docker --version
           docker ps -a
+          echo $ENV
 jobs:
   build:
     docker: 
       - image: cimg/node:14.17.5
     steps:
       - build_image:
-          enviroment: hiep
+          enviroment: $ENV
+workflows:
+  version: 2
+  "build_test":
+    jobs:
+      - build:
+          context: staging
+    
