@@ -17,7 +17,7 @@ commands:
           node --version
           docker --version
           docker ps -a
-          docker build test-image .
+          docker build -t test:latest .
           docker images
           echo <<parameters.environment>>
           echo <<parameters.tag>>
