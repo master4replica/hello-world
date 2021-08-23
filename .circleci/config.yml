@@ -5,7 +5,6 @@ commands:
   build_image:
     steps:
       - checkout
-      - setup_remote_docker
       - run: |
           TAG=1.0
           docker build -t iwonder/aspera-transporter:$TAG .
