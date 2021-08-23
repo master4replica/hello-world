@@ -1,14 +1,20 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1
+  node: circleci/node@4.7.0
+commands:
+  build_image:
+    steps:
+      - checkout
+      - setup_remote_docker:
+         docker_layer_caching: true
+      - run: |
+          TAG=1.0
+          docker build -t iwonder/aspera-transporter:$TAG .
+
 jobs:
   build:
     executor:
       name: node/default
-      tag: '10.4'
+      tag: "10.4"
     steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-      # - run: npm run test
+      - build_image
