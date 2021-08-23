@@ -17,8 +17,8 @@ commands:
           node --version
           docker --version
           docker ps -a
-          echo $ENV
-          echo $TAG
+          echo <<parameters.environment>>
+          echo <<parameters.tag>>
 jobs:
   build:
     docker: 
