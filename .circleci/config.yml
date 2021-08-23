@@ -11,7 +11,7 @@ commands:
       - run: |
           node --version
           docker --version
-          java --version
+          docker ps -a
 jobs:
   build:
     docker: 
