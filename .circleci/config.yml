@@ -15,17 +15,28 @@ commands:
           docker --version
           docker ps -a
           echo $ENV
+          echo $TAG
 jobs:
   build:
     docker: 
       - image: cimg/node:14.17.5
+    parameters:
+      environment:
+        type: string
+        default: staging
+      tag:
+        type: string
+        default: '1.0'
     steps:
       - build_image:
-          enviroment: $ENV
+          enviroment: <<parameters.environment>>
+          tag: <<parameters.tag>>
 workflows:
   version: 2
   "build_test":
     jobs:
       - build:
           context: staging
+          tag: $TAG
+          enviroment: $ENV
     
