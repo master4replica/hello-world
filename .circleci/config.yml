@@ -32,7 +32,7 @@ jobs:
         default: '1.0'
     steps:
       - build_image:
-          enviroment: <<parameters.environment>>
+          environment: <<parameters.environment>>
           tag: <<parameters.tag>>
 workflows:
   version: 2
