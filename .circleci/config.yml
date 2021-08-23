@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@4.7.0
   aws-cli: circleci/aws-cli@1.3.1
-  docker: circleci/docker@1.6.0
+  docker-installer: circleci/docker@1.6.0
 commands:
   build_image:
     parameters:
@@ -10,7 +10,7 @@ commands:
         type: string
         default: test
     steps:
-      - docker/install-docker
+      - docker-installer/install-docker
       - checkout
       - run: echo <<parameters.enviroment>>
       - run: docker images
