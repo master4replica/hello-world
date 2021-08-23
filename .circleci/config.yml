@@ -13,11 +13,13 @@ commands:
       - docker-installer/install-docker
       - checkout
       - run: echo <<parameters.enviroment>>
-      - run: | 
-          docker images
-          # TAG=1.0
-          # docker build -t iwonder/aspera-transporter:$TAG .
-          # docker images
+      - run: dockerd &
+      - run: docker --version
+      # - run: | 
+      #     docker images
+      #     # TAG=1.0
+      #     # docker build -t iwonder/aspera-transporter:$TAG .
+      #     # docker images
   upload_ecr:
     steps:
       - run: | 
