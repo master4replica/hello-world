@@ -13,10 +13,10 @@ commands:
       - docker/install-docker
       - checkout
       - run: echo <<parameters.enviroment>>
-      - run: |
-          TAG=1.0
-          docker build -t iwonder/aspera-transporter:$TAG .
-          docker images
+      - run: docker images
+          # TAG=1.0
+          # docker build -t iwonder/aspera-transporter:$TAG .
+          # docker images
   upload_ecr:
     steps:
       - run: docker ps
@@ -24,4 +24,6 @@ jobs:
   build:
     executor: node/default
     steps:
-      - build_image
+      - build_image:
+          enviroment: hiep
+      - upload_ecr
