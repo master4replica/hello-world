@@ -12,8 +12,6 @@ commands:
 
 jobs:
   build:
-    executor:
-      name: node/default
-      tag: "10.4"
+    machine: true
     steps:
       - build_image
