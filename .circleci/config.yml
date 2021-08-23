@@ -14,15 +14,8 @@ commands:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: false
-      - run: |
-          node --version
-          docker --version
-          docker ps -a
-          docker build -t test:latest .
-          docker images
-          docker images -q test
-          echo <<parameters.environment>>
-          echo <<parameters.tag>>
+      - aws-cli/install
+      - run: aws --version
 jobs:
   build:
     docker: 
