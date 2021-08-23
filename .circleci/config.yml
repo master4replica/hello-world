@@ -38,5 +38,5 @@ workflows:
       - build:
           context: staging
           tag: $TAG
-          enviroment: $ENV
+          environment: $ENV
     
