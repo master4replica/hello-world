@@ -1,8 +1,11 @@
 version: 2.1
 orbs:
   node: circleci/node@4.7.0
+  aws-cli: circleci/aws-cli@1.3.1
 commands:
   build_image:
+    docker: 
+      iamge: 
     parameters:
       enviroment:
         type: string
@@ -10,12 +13,12 @@ commands:
     steps:
       - checkout
       - run: echo <<parameters.enviroment>>
-      # - run: |
-      #     TAG=1.0
-      #     docker build -t iwonder/aspera-transporter:$TAG .
-      #     docker images
+      - run: |
+          TAG=1.0
+          docker build -t iwonder/aspera-transporter:$TAG .
+          docker images
 jobs:
   build:
-    machine: true
+    executor: node/default
     steps:
       - build_image
