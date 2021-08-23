@@ -4,7 +4,7 @@ orbs:
 commands:
   build_image:
     parameters:
-      enviroment:
+      environment:
         type: string
         default: test
       tag:
