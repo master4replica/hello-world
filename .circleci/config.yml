@@ -10,6 +10,8 @@ commands:
     steps:
       - run: |
           node --version
+          docker --version
+          java --version
 jobs:
   build:
     docker: 
