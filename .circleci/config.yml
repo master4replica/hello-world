@@ -21,7 +21,7 @@ commands:
       - docker/install-docker-credential-helper
       - docker/configure-docker-credentials-store:
           helper-name: pass
-      # - run: cat $HOME/.docker/config.json
+      - run: cat $HOME/.docker/config.json
           
 jobs:
   build:
