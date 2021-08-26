@@ -16,10 +16,10 @@ commands:
           docker_layer_caching: false
       - aws-cli/install
       - run: |
-          sudo apt update
-          sudo apt install amazon-ecr-credential-helper
-          whereis amazon-ecr-credential-helper
-          export PATH=${PATH}:$(whereis amazon-ecr-credential-helper)
+          # sudo apt update
+          # sudo apt install amazon-ecr-credential-helper
+          # whereis amazon-ecr-credential-helper
+          # export PATH=${PATH}:$(whereis amazon-ecr-credential-helper)
           cat ~/.docker/config.json
 jobs:
   build:
