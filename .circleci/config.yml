@@ -18,9 +18,9 @@ commands:
       #     docker_layer_caching: false
       - aws-cli/install
       - docker/install-docker
-      - docker/install-docker-credential-helper
-      - docker/configure-docker-credentials-store:
-          helper-name: pass
+      # - docker/install-docker-credential-helper
+      - docker/configure-docker-credentials-store
+          # helper-name: pass
       - run: cat $HOME/.docker/config.json
           
 jobs:
