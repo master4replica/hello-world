@@ -14,7 +14,12 @@ commands:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: false
-      - run: sudo apt update
+      - aws-cli/install
+      - run: |
+          sudo apt update
+          sudo apt install amazon-ecr-credential-helper
+          export PATH=${PATH}:$(whereis amazon-ecr-credential-helper)
+          echo $PATH
 jobs:
   build:
     docker: 
