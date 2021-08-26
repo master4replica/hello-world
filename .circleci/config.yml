@@ -12,8 +12,8 @@ commands:
         default: '1.0'
     steps:
       - checkout
-      - setup_remote_docker:
-          docker_layer_caching: false
+      # - setup_remote_docker:
+      #     docker_layer_caching: false
       - aws-cli/install
       - run: |
           # sudo apt update
