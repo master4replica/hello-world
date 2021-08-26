@@ -23,8 +23,7 @@ commands:
           docker config inspect config.json
 jobs:
   build:
-    docker: 
-      - image: cimg/node:14.17.5
+    machine: true
     parameters:
       environment:
         type: string
