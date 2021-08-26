@@ -20,7 +20,7 @@ commands:
           # sudo apt install amazon-ecr-credential-helper
           # whereis amazon-ecr-credential-helper
           # export PATH=${PATH}:$(whereis amazon-ecr-credential-helper)
-          docker config inspect config.json
+          cat ~/.docker/config.json
 jobs:
   build:
     machine: true
