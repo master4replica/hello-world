@@ -14,8 +14,7 @@ commands:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: false
-      - aws-cli/install
-      - run: aws --version
+      - run: sudo apt update
 jobs:
   build:
     docker: 
