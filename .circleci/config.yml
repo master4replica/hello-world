@@ -19,7 +19,8 @@ commands:
       - aws-cli/install
       - docker/install-docker
       - docker/install-docker-credential-helper
-      - run: cat ~/.docker/config.json
+      - docker/use-docker-credentials-store
+      - run: cat $HOME/.docker/config.json
           
 jobs:
   build:
