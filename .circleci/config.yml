@@ -20,10 +20,11 @@ commands:
           # sudo apt install amazon-ecr-credential-helper
           # whereis amazon-ecr-credential-helper
           # export PATH=${PATH}:$(whereis amazon-ecr-credential-helper)
-          cat ~/.docker/config.json
+          docker --version
 jobs:
   build:
-    machine: true
+    docker:
+      - image: cimg/node:14.17.5
     parameters:
       environment:
         type: string
