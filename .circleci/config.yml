@@ -1,6 +1,8 @@
 version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@1.3.1
+  node: circleci/node@4.7.0
+  docker: circleci/docker@1.7.0
 commands:
   build_image:
     parameters:
@@ -15,17 +17,13 @@ commands:
       # - setup_remote_docker:
       #     docker_layer_caching: false
       - aws-cli/install
-      - run: |
-          # sudo apt update
-          # sudo apt install amazon-ecr-credential-helper
-          # whereis amazon-ecr-credential-helper
-          # export PATH=${PATH}:$(whereis amazon-ecr-credential-helper)
-          ssh remote-docker "cat ~/.docker/config.json"
+      - docker/install-docker
+      - docker/install-docker-credential-helper
+      - run: cat ~/.docker/config.json
           
 jobs:
   build:
-    docker:
-      - image: cimg/node:14.17.5
+    executor: node/default
     parameters:
       environment:
         type: string
