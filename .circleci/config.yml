@@ -23,7 +23,7 @@ commands:
           # helper-name: pass
       - run: |
           cat $HOME/.docker/config.json
-          docker --version
+          docker ps -a
       
           
 jobs:
