@@ -22,8 +22,8 @@ commands:
       - docker/configure-docker-credentials-store
           # helper-name: pass
       - run: |
-          cat $HOME/.docker/config.json
-          docker ps -a
+          TEST="sssddd"
+          echo $TEST
       
           
 jobs:
