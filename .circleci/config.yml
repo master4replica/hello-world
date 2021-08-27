@@ -21,7 +21,9 @@ commands:
       - docker/install-docker-credential-helper
       - docker/configure-docker-credentials-store
           # helper-name: pass
-      - run: echo $HOME
+      - run: |
+          echo $HOME
+          pwd
       
           
 jobs:
